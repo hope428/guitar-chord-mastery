@@ -1,0 +1,26 @@
+[
+    {
+        "name": "E String - A Major Barre",
+        "imgUrl": "/assets/chords/e-string-barre-chords/e-a-major-barre.png"
+    }, 
+    {
+        "name": "E String - A Minor Barre",
+        "imgUrl": "/assets/chords/e-string-barre-chords/e-a-minor-barre.png"
+    }, 
+    {
+        "name": "E String - G Minor Barre",
+        "imgUrl": "/assets/chords/e-string-barre-chords/e-g-minor-barre.png"
+    }, 
+    {
+        "name": "E String - G Major Barre",
+        "imgUrl": "/assets/chords/e-string-barre-chords/e-g-major-barre.png"
+    },
+    {
+        "name": "E String - F Major Barre",
+        "imgUrl": "/assets/chords/e-string-barre-chords/e-f-major-barre.png"
+    },
+    {
+        "name": "E String - F Minor Barre",
+        "imgUrl": "/assets/chords/e-string-barre-chords/e-f-minor-barre.png"
+    }
+]

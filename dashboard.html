@@ -1,32 +1,39 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+    
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <nav>
-            <h1>Guitar Chord Mastery</h1>
-            <div id="options">
-                <a href="#">My Chords</a>
-                <a href="#">Chord Library</a>
-                <a href="#">Practice</a>
-            </div>
-        </nav>
+      <nav>
+        <h1><a href="index.html">Guitar Chord Mastery</a></h1>
+        <div id="options">
+          <a href="#">My Chords</a>
+          <a href="dashboard.html">Chord Library</a>
+        </div>
+      </nav>
     </header>
 
     <main>
-        <section id="library">
-            <button id="eStringBarre">E String Barre Chords</button>
-            <button id="aStringBarre">A String Barre Chords</button>
-            <button id="dStringBarre">D String Barre Chords</button>
-            <button id="7th">7th Chords</button>
-        </section>
+      <section id="library">
+        <button id="eStringBarre">E String Barre Chords</button>
+        <button id="aStringBarre">A String Barre Chords</button>
+        <button id="dStringBarre">D String Barre Chords</button>
+        <button id="7th">7th Chords</button>
+      </section>
+
+<div class="swiper">
+  <div class="swiper-wrapper" id="libraryResults">
+  </div>
+</div>
+</section>
     </main>
-    <script src="script.js">
-    </script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>

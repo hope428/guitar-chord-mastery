@@ -67,6 +67,12 @@ nav {
 nav a {
     text-decoration: none;
     color: white;
+    font-weight: bold;
+}
+
+#options {
+    display: flex;
+    gap: 2rem;
 }
 
 nav a:hover {
@@ -84,6 +90,12 @@ body {
     width: auto;
     display: flex;
     justify-content: center;
+}
+
+.active {
+    text-decoration: underline;
+    color: rgb(161, 24, 24);
+    font-style: italic;
 }
 
 #library {

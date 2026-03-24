@@ -4,6 +4,7 @@ const library = document.getElementById("libraryResults");
 const eStringBarre = document.getElementById("eStringBarre");
 const aStringBarre = document.getElementById("aStringBarre");
 const dStringBarre = document.getElementById("dStringBarre");
+const favoritesCards = document.getElementById("favoritesResults")
 
 async function fillChords() {
   const response = await fetch("chords.json");
@@ -57,19 +58,19 @@ const swiper = new Swiper(".swiper", {
 const eliminateDuplicates = () => {
   let currentFaves = JSON.parse(localStorage.getItem("chordFavorites"));
   currentFaves = [...new Set(currentFaves)]
+  localStorage.setItem("chordFavorites", JSON.stringify(currentFaves))
 }
 
 const addToFavorites = (btnId) => {
   let currentFaves = localStorage.getItem("chordFavorites");
   currentFaves = currentFaves ? JSON.parse(currentFaves) : [];
   currentFaves.push(btnId);
-  console.log(currentFaves);
   localStorage.setItem("chordFavorites", JSON.stringify(currentFaves));
+  eliminateDuplicates()
 };
 
 const assignButtonEventListener = () => {
   const buttons = document.querySelectorAll(".card-btn");
-  console.log(buttons);
   buttons.forEach((button) => {
     button.addEventListener("click", () => {
       addToFavorites(button.dataset.id);
@@ -78,10 +79,39 @@ const assignButtonEventListener = () => {
 };
 
 const loadMyChords = async () => {
-    chords = await fillChords();
+    const chords = await fillChords();
+    const currentFaves = JSON.parse(localStorage.getItem("chordFavorites"))
+    let favoriteChords = []
+    
+    favoriteChords = currentFaves.map(index => chords[Number(index)]).filter(Boolean)
+
+    return favoriteChords
+}
+
+const displayFavoriteChords = async () => {
+  const favorites = await loadMyChords()
+  console.log(favorites)
+
+  let html = "";
+  for (let i = 0; i < favorites.length; i++) {
+    html += `<div class="chord-card swiper-slide"><h2>${favorites[i].name}</h2><img src="${favorites[i].imgUrl}"><button data-id="${i}" class="card-btn">Unfavorite</button></div>`;
+  }
+  favoritesCards.innerHTML = html;
+  swiper.update();
 
 }
 
-eStringBarre.addEventListener("click", displayEString);
-aStringBarre.addEventListener("click", displayAString);
-dStringBarre.addEventListener("click", displayDString);
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const eStringBarre = document.getElementById("eStringBarre");
+  const aStringBarre = document.getElementById("aStringBarre");
+  const dStringBarre = document.getElementById("dStringBarre");
+
+  eStringBarre?.addEventListener("click", displayEString);
+  aStringBarre?.addEventListener("click", displayAString);
+  dStringBarre?.addEventListener("click", displayDString);
+
+  // Optional: display favorites immediately
+  displayFavoriteChords();
+});

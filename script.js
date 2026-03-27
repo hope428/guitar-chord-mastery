@@ -94,11 +94,29 @@ const displayFavoriteChords = async () => {
 
   let html = "";
   for (let i = 0; i < favorites.length; i++) {
-    html += `<div class="chord-card swiper-slide"><h2>${favorites[i].name}</h2><img src="${favorites[i].imgUrl}"><button data-id="${i}" class="card-btn">Unfavorite</button></div>`;
+    html += `<div class="chord-card swiper-slide"><h2>${favorites[i].name}</h2><img src="${favorites[i].imgUrl}"><button data-id="${i}" class="card-btn unfaveBtns">Unfavorite</button></div>`;
   }
   favoritesCards.innerHTML = html;
   swiper.update();
 
+}
+
+const assignUnfavoriteEvent = () => {
+  const unfaveBtn = document.querySelectorAll(".unfaveBtns");
+  unfaveBtn.addEventListener("click", () => {console.log(this)})
+};
+
+const unfavoriteChord = (btnId) => {
+  console.log('clik unfave')
+  let currentFaves = localStorage.getItem("chordFavorites");
+  currentFaves = JSON.parse(currentFaves)
+
+  let position = currentFaves.indexOf(btnId) + 1
+  currentFaves.splice(position, 1)
+  localStorage.setItem("chordFavorites", JSON.stringify(currentFaves));
+
+  displayFavoriteChords()
+  assignUnfavoriteEvent()
 }
 
 
@@ -112,6 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
   aStringBarre?.addEventListener("click", displayAString);
   dStringBarre?.addEventListener("click", displayDString);
 
-  // Optional: display favorites immediately
+
+
   displayFavoriteChords();
 });

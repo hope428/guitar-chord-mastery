@@ -90,24 +90,33 @@ const loadMyChords = async () => {
 
 const displayFavoriteChords = async () => {
   const favorites = await loadMyChords()
-  console.log(favorites)
+  
 
   let html = "";
+  if(favorites.length > 0){
   for (let i = 0; i < favorites.length; i++) {
     html += `<div class="chord-card swiper-slide"><h2>${favorites[i].name}</h2><img src="${favorites[i].imgUrl}"><button data-id="${i}" class="card-btn unfaveBtns">Unfavorite</button></div>`;
   }
+} else {
+  html = `<h2 class="no-favorites">No favorites yet! Check out the chord library!</h2>`
+}
   favoritesCards.innerHTML = html;
   swiper.update();
 
+  assignUnfavoriteEvent()
 }
 
 const assignUnfavoriteEvent = () => {
   const unfaveBtn = document.querySelectorAll(".unfaveBtns");
-  unfaveBtn.addEventListener("click", () => {console.log(this)})
+
+  for(let i = 0; i < unfaveBtn.length; i++){
+    unfaveBtn[i].addEventListener("click", (e) => {
+      unfavoriteChord(e.target.dataset.id)
+    })
+  }
 };
 
 const unfavoriteChord = (btnId) => {
-  console.log('clik unfave')
   let currentFaves = localStorage.getItem("chordFavorites");
   currentFaves = JSON.parse(currentFaves)
 
@@ -116,7 +125,6 @@ const unfavoriteChord = (btnId) => {
   localStorage.setItem("chordFavorites", JSON.stringify(currentFaves));
 
   displayFavoriteChords()
-  assignUnfavoriteEvent()
 }
 
 

@@ -98,6 +98,12 @@ body {
     font-style: italic;
 }
 
+.no-favorites {
+    color: white;
+    font-weight: bold;
+    margin: 0 auto;
+}
+
 #library {
     margin: 3rem auto;
     max-width: 750px;

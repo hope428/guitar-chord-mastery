@@ -93,7 +93,47 @@ let chords = [
     {
         index: 18,
         "name": "E String - F Dominant 7th",
-        "imgUrl": "assets/chords/e-string-7-chords/FJ.png"
+        "imgUrl": "assets/chords/e-string-7-chords/F7.png"
+    },
+    {
+        index: 19,
+        "name": "E String - F Major 7th",
+        "imgUrl": "assets/chords/e-string-7-chords/Fmaj7.png"
+    },
+    {
+        index: 20,
+        "name": "E String - F Minor 7th",
+        "imgUrl": "assets/chords/e-string-7-chords/Fm7.png"
+    },
+    {
+        index: 21,
+        "name": "E String - G Dominant 7th",
+        "imgUrl": "assets/chords/e-string-7-chords/G7.png"
+    },
+    {
+        index: 22,
+        "name": "E String - G Major 7th",
+        "imgUrl": "assets/chords/e-string-7-chords/Gmaj7.png"
+    },
+    {
+        index: 23,
+        "name": "E String - G Minor 7th",
+        "imgUrl": "assets/chords/e-string-7-chords/Gm7.png"
+    },
+    {
+        index: 24,
+        "name": "E String - A Dominant 7th",
+        "imgUrl": "assets/chords/e-string-7-chords/A7.png"
+    },
+    {
+        index: 25,
+        "name": "E String - A Major 7th",
+        "imgUrl": "assets/chords/e-string-7-chords/Amaj7.png"
+    },
+    {
+        index: 26,
+        "name": "E String - A Minor 7th",
+        "imgUrl": "assets/chords/e-string-7-chords/Am7.png"
     }
 ];
 const library = document.getElementById("libraryResults");
@@ -135,10 +175,15 @@ const displayDString = () => {
 };
 
 const display7th = () => {
+  console.log("here")
   let html = ""
-  for (let i = 18; i <= 18; i++) {
+  for (let i = 18; i <= 26; i++) {
     html += `<div class="chord-card swiper-slide"><h2>${chords[i].name}</h2><img src="${chords[i].imgUrl}"><button data-id="${i}" class="card-btn">Add To Favorites</button></div>`;
   }
+
+  library.innerHTML = html;
+  assignButtonEventListener();
+  swiper.update();
 }
 
 const swiper = new Swiper(".swiper", {
@@ -236,10 +281,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const eStringBarre = document.getElementById("eStringBarre");
   const aStringBarre = document.getElementById("aStringBarre");
   const dStringBarre = document.getElementById("dStringBarre");
+  const eString7 = document.getElementById("7th");
 
   eStringBarre?.addEventListener("click", displayEString);
   aStringBarre?.addEventListener("click", displayAString);
   dStringBarre?.addEventListener("click", displayDString);
+  eString7?.addEventListener("click", display7th)
 
 
 

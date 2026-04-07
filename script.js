@@ -1,20 +1,104 @@
 // Get chord diagrams and
-let chords = [];
+let chords = [
+    {
+        "index": 0,
+        "name": "E String - A Major Barre",
+        "imgUrl": "assets/chords/e-string-barre-chords/e-a-major-barre.png"
+    }, 
+    {
+        index: 1, 
+        "name": "E String - A Minor Barre",
+        "imgUrl": "assets/chords/e-string-barre-chords/e-a-minor-barre.png"
+    }, 
+    {
+        index: 2,
+        "name": "E String - G Minor Barre",
+        "imgUrl": "assets/chords/e-string-barre-chords/e-g-minor-barre.png"
+    }, 
+    {
+        index: 3, 
+        "name": "E String - G Major Barre",
+        "imgUrl": "assets/chords/e-string-barre-chords/e-g-major-barre.png"
+    },
+    {
+        index: 4, 
+        "name": "E String - F Major Barre",
+        "imgUrl": "assets/chords/e-string-barre-chords/e-f-major-barre.png"
+    },
+    {
+        index: 5, 
+        "name": "E String - F Minor Barre",
+        "imgUrl": "assets/chords/e-string-barre-chords/e-f-minor-barre.png"
+    },
+    {
+        index: 6, 
+        "name": "A String - B Major Barre",
+        "imgUrl": "assets/chords/a-string-barre-chords/a-b-major-barre.png"
+    }, 
+    {
+        index: 7, 
+        "name": "A String - B Minor Barre",
+        "imgUrl": "assets/chords/a-string-barre-chords/a-b-minor-barre.png"
+    }, 
+    {
+        index: 8,
+        "name": "A String - C Minor Barre",
+        "imgUrl": "assets/chords/a-string-barre-chords/a-c-minor-barre.png"
+    }, 
+    {
+        index: 9,
+        "name": "A String - C Major Barre",
+        "imgUrl": "assets/chords/a-string-barre-chords/a-c-major-barre.png"
+    },
+    {
+        index: 10, 
+        "name": "A String - D Major Barre",
+        "imgUrl": "assets/chords/a-string-barre-chords/a-d-major-barre.png"
+    },
+    {
+        index: 11,
+        "name": "A String - D Minor Barre",
+        "imgUrl": "assets/chords/a-string-barre-chords/a-d-minor-barre.png"
+    },
+    {
+        index: 12, 
+        "name": "D String - A Major Barre",
+        "imgUrl": "assets/chords/d-string-barre-chords/d-a-major-barre.png"
+    }, 
+    {
+        index: 13, 
+        "name": "D String - A Minor Barre",
+        "imgUrl": "assets/chords/d-string-barre-chords/d-a-minor-barre.png"
+    }, 
+    {
+        index: 14, 
+        "name": "D String - F Minor Barre",
+        "imgUrl": "assets/chords/d-string-barre-chords/d-f-minor-barre.png"
+    }, 
+    {
+        index: 15,
+        "name": "D String - F Major Barre",
+        "imgUrl": "assets/chords/d-string-barre-chords/d-f-major-barre.png"
+    },
+    {
+        index: 16,
+        "name": "D String - G Major Barre",
+        "imgUrl": "assets/chords/d-string-barre-chords/d-g-major-barre.png"
+    },
+    {
+        index: 17,
+        "name": "D String - G Minor Barre",
+        "imgUrl": "assets/chords/d-string-barre-chords/d-g-minor-barre.png"
+    }
+];
 const library = document.getElementById("libraryResults");
 const eStringBarre = document.getElementById("eStringBarre");
 const aStringBarre = document.getElementById("aStringBarre");
 const dStringBarre = document.getElementById("dStringBarre");
 const favoritesCards = document.getElementById("favoritesResults")
 
-async function fillChords() {
-  const response = await fetch("chords.json");
-  const data = await response.json();
-  return data;
-}
 
-const displayEString = async () => {
-  chords = await fillChords();
-  library.innerHTML = "";
+const displayEString = () => {
   let html = "";
   for (let i = 0; i < 6; i++) {
     html += `<div class="chord-card swiper-slide"><h2>${chords[i].name}</h2><img src="${chords[i].imgUrl}"><button data-id="${i}" class="card-btn">Add To Favorites</button></div>`;
@@ -24,8 +108,7 @@ const displayEString = async () => {
   swiper.update();
 };
 
-const displayAString = async () => {
-  chords = await fillChords();
+const displayAString = () => {
   library.innerHTML = "";
   let html = "";
   for (let i = 6; i < 12; i++) {
@@ -36,9 +119,7 @@ const displayAString = async () => {
   swiper.update();
 };
 
-const displayDString = async () => {
-  chords = await fillChords();
-  console.log(chords);
+const displayDString = () => {
   let html = "";
   for (let i = 12; i < 18; i++) {
     html += `<div class="chord-card swiper-slide"><h2>${chords[i].name}</h2><img src="${chords[i].imgUrl}"><button data-id="${i}" class="card-btn">Add To Favorites</button></div>`;
@@ -78,8 +159,7 @@ const assignButtonEventListener = () => {
   });
 };
 
-const loadMyChords = async () => {
-    const chords = await fillChords();
+const loadMyChords = () => {
     const currentFaves = JSON.parse(localStorage.getItem("chordFavorites"))
     let favoriteChords = []
     
@@ -88,14 +168,14 @@ const loadMyChords = async () => {
     return favoriteChords
 }
 
-const displayFavoriteChords = async () => {
-  const favorites = await loadMyChords()
+const displayFavoriteChords = () => {
+  const favorites = loadMyChords()
   
 
   let html = "";
   if(favorites.length > 0){
   for (let i = 0; i < favorites.length; i++) {
-    html += `<div class="chord-card swiper-slide"><h2>${favorites[i].name}</h2><img src="${favorites[i].imgUrl}"><button data-id="${i}" class="card-btn unfaveBtns">Unfavorite</button></div>`;
+    html += `<div class="chord-card swiper-slide"><h2>${favorites[i].name}</h2><img src="${favorites[i].imgUrl}"><button data-id="${favorites[i].index}" class="card-btn unfaveBtns">Unfavorite</button></div>`;
   }
 } else {
   html = `<h2 class="no-favorites">No favorites yet! Check out the chord library!</h2>`
@@ -117,17 +197,37 @@ const assignUnfavoriteEvent = () => {
 };
 
 const unfavoriteChord = (btnId) => {
-  let currentFaves = localStorage.getItem("chordFavorites");
-  currentFaves = JSON.parse(currentFaves)
+  let currentFaves = JSON.parse(localStorage.getItem("chordFavorites")) || [];
 
-  let position = currentFaves.indexOf(btnId) + 1
-  currentFaves.splice(position, 1)
+  console.log(currentFaves)
+
+  console.log(btnId)
+
+  let position = currentFaves.indexOf(btnId);
+  console.log(position)
+
+  if (position !== -1) {
+    currentFaves.splice(position, 1);
+  }
+
+  console.log(currentFaves)
+
   localStorage.setItem("chordFavorites", JSON.stringify(currentFaves));
-
-  displayFavoriteChords()
+  displayFavoriteChords();
 }
 
+const checkForFavorite = (id) => {
+  let currentFaves = localStorage.getItem("chordFavorites")
+  currentFaves = JSON.parse(currentFaves)
+  
+  if(currentFaves.includes(id)){
+    return true
+  } else {
+    return false
+  }
+}
 
+checkForFavorite()
 
 document.addEventListener("DOMContentLoaded", () => {
   const eStringBarre = document.getElementById("eStringBarre");

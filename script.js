@@ -89,6 +89,11 @@ let chords = [
         index: 17,
         "name": "D String - G Minor Barre",
         "imgUrl": "assets/chords/d-string-barre-chords/d-g-minor-barre.png"
+    }, 
+    {
+        index: 18,
+        "name": "E String - F Dominant 7th",
+        "imgUrl": "assets/chords/e-string-7-chords/FJ.png"
     }
 ];
 const library = document.getElementById("libraryResults");
@@ -128,6 +133,13 @@ const displayDString = () => {
   assignButtonEventListener();
   swiper.update();
 };
+
+const display7th = () => {
+  let html = ""
+  for (let i = 18; i <= 18; i++) {
+    html += `<div class="chord-card swiper-slide"><h2>${chords[i].name}</h2><img src="${chords[i].imgUrl}"><button data-id="${i}" class="card-btn">Add To Favorites</button></div>`;
+  }
+}
 
 const swiper = new Swiper(".swiper", {
   slidesPerView: "auto",
@@ -199,19 +211,10 @@ const assignUnfavoriteEvent = () => {
 const unfavoriteChord = (btnId) => {
   let currentFaves = JSON.parse(localStorage.getItem("chordFavorites")) || [];
 
-  console.log(currentFaves)
-
-  console.log(btnId)
-
   let position = currentFaves.indexOf(btnId);
-  console.log(position)
-
   if (position !== -1) {
     currentFaves.splice(position, 1);
   }
-
-  console.log(currentFaves)
-
   localStorage.setItem("chordFavorites", JSON.stringify(currentFaves));
   displayFavoriteChords();
 }

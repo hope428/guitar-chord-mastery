@@ -337,7 +337,7 @@ const unfavoriteChord = (btnId) => {
 const checkForFavorite = (id) => {
   let currentFaves = localStorage.getItem("chordFavorites");
   currentFaves = JSON.parse(currentFaves);
-  if (currentFaves.length > 0) {
+  if (currentFaves != null) {
     if (currentFaves.includes(String(id))) {
       return true;
     } else {

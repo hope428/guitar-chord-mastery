@@ -142,9 +142,9 @@ const aStringBarre = document.getElementById("aStringBarre");
 const dStringBarre = document.getElementById("dStringBarre");
 const favoritesCards = document.getElementById("favoritesResults");
 
-const displayEString = () => {
+const displayStringFunction = (first, last) => {
   let html = "";
-  for (let i = 0; i <= 6; i++) {
+  for (let i = first; i <= last; i++) {
     let btnHTMLNonFave = `<button data-id="${i}" class="card-btn">Add To Favorites</button></div>`;
     let btnHTMLFave = `<button data-id="${i}" disabled=true class="card-btn">Favorited!</button></div>`;
     let btnHTMLFinal = "";
@@ -158,61 +158,22 @@ const displayEString = () => {
   library.innerHTML = html;
   assignButtonEventListener();
   swiper.update();
+}
+
+const displayEString = () => {
+  displayStringFunction(0, 6)
 };
 
 const displayAString = () => {
-  library.innerHTML = "";
-  for (let i = 6; i <= 12; i++) {
-    let btnHTMLNonFave = `<button data-id="${i}" class="card-btn">Add To Favorites</button></div>`;
-    let btnHTMLFave = `<button data-id="${i}" disabled=true class="card-btn">Favorited!</button></div>`;
-    let btnHTMLFinal = "";
-    if (checkForFavorite(i)) {
-      btnHTMLFinal = btnHTMLFave;
-    } else {
-      btnHTMLFinal = btnHTMLNonFave;
-    }
-    html += `<div class="chord-card swiper-slide"><h2>${chords[i].name}</h2><img src="${chords[i].imgUrl}">${btnHTMLFinal}`;
-  }
-  library.innerHTML = html;
-  assignButtonEventListener();
-  swiper.update();
+  displayStringFunction(6, 12)
 };
 
 const displayDString = () => {
-  let html = "";
-  for (let i = 12; i <= 18; i++) {
-    let btnHTMLNonFave = `<button data-id="${i}" class="card-btn">Add To Favorites</button></div>`;
-    let btnHTMLFave = `<button data-id="${i}" disabled=true class="card-btn">Favorited!</button></div>`;
-    let btnHTMLFinal = "";
-    if (checkForFavorite(i)) {
-      btnHTMLFinal = btnHTMLFave;
-    } else {
-      btnHTMLFinal = btnHTMLNonFave;
-    }
-    html += `<div class="chord-card swiper-slide"><h2>${chords[i].name}</h2><img src="${chords[i].imgUrl}">${btnHTMLFinal}`;
-  }
-  library.innerHTML = html;
-  assignButtonEventListener();
-  swiper.update();
+  displayStringFunction(12, 18)
 };
 
 const display7th = () => {
-  let html = "";
-  for (let i = 18; i <= 26; i++) {
-    let btnHTMLNonFave = `<button data-id="${i}" class="card-btn">Add To Favorites</button></div>`;
-    let btnHTMLFave = `<button data-id="${i}" disabled=true class="card-btn">Favorited!</button></div>`;
-    let btnHTMLFinal = "";
-    if (checkForFavorite(i)) {
-      btnHTMLFinal = btnHTMLFave;
-    } else {
-      btnHTMLFinal = btnHTMLNonFave;
-    }
-    html += `<div class="chord-card swiper-slide"><h2>${chords[i].name}</h2><img src="${chords[i].imgUrl}">${btnHTMLFinal}`;
-  }
-
-  library.innerHTML = html;
-  assignButtonEventListener();
-  swiper.update();
+  displayStringFunction(18, 26)
 };
 
 const swiper = new Swiper(".swiper", {

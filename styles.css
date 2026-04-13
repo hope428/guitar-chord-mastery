@@ -70,9 +70,13 @@ nav a {
     font-weight: bold;
 }
 
+hr {
+    border: 1px solid rgb(150, 89, 226);
+}
+
 #options {
     display: flex;
-    gap: 2rem;
+    gap: 5rem;
 }
 
 nav a:hover {
@@ -80,6 +84,10 @@ nav a:hover {
 }
 body {
     background-color: rgb(31, 26, 26);
+}
+
+.chord-diagram-example {
+    background-color: white;
 }
 
 .swiper {

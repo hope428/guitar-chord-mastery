@@ -135,6 +135,76 @@ let chords = [
     name: "E String - A Minor 7th",
     imgUrl: "assets/chords/e-string-7-chords/Am7.png",
   },
+  {
+    index: 27,
+    name: "A Major",
+    imgUrl: "assets/chords/major/aMaj.png",
+  },
+  {
+    index: 28,
+    name: "B Major",
+    imgUrl: "assets/chords/major/bMaj.png"
+  },
+  {
+    index: 29,
+    name: "C Major",
+    imgUrl: "assets/chords/major/cMaj.png",
+  },
+  {
+    index: 30,
+    name: "D Major",
+    imgUrl: "assets/chords/major/dMaj.png",
+  },
+  {
+    index: 31,
+    name: "E Major",
+    imgUrl: "assets/chords/major/eMaj.png",
+  },
+  {
+    index: 32,
+    name: "F Major",
+    imgUrl: "assets/chords/major/fMaj.png",
+  },
+  {
+    index: 33,
+    name: "G Major",
+    imgUrl: "assets/chords/major/gMaj.png",
+  },
+  {
+    index: 34,
+    name: "A Minor",
+    imgUrl: "assets/chords/major/aMin.png",
+  },
+  {
+    index: 35,
+    name: "B Minor",
+    imgUrl: "assets/chords/major/bMin.png",
+  },
+  {
+    index: 36,
+    name: "C Minor",
+    imgUrl: "assets/chords/major/cMin.png",
+  },
+  {
+    index: 37,
+    name: "D Minor",
+    imgUrl: "assets/chords/major/dMin.png",
+  },
+  {
+    index: 38,
+    name: "E Minor",
+    imgUrl: "assets/chords/major/eMin.png",
+  },
+  {
+    index: 39,
+    name: "F Minor",
+    imgUrl: "assets/chords/major/fMin.png",
+  },
+  {
+    index: 40,
+    name: "G Minor",
+    imgUrl: "assets/chords/major/gMin.png",
+  },
 ];
 const library = document.getElementById("libraryResults");
 const eStringBarre = document.getElementById("eStringBarre");
@@ -161,20 +231,28 @@ const displayStringFunction = (first, last) => {
 }
 
 const displayEString = () => {
-  displayStringFunction(0, 6)
+  displayStringFunction(0, 5)
 };
 
 const displayAString = () => {
-  displayStringFunction(6, 12)
+  displayStringFunction(6, 11)
 };
 
 const displayDString = () => {
-  displayStringFunction(12, 18)
+  displayStringFunction(12, 17)
 };
 
 const display7th = () => {
   displayStringFunction(18, 26)
 };
+
+const displayMajor = () => {
+  displayStringFunction(27, 33)
+}
+
+const displayMinor = () => {
+  displayStringFunction(34, 40)
+}
 
 const swiper = new Swiper(".swiper", {
   slidesPerView: "auto",
@@ -267,11 +345,16 @@ const checkForFavorite = (id) => {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
+  const openMajor = document.getElementById("major");
+  const openMinor = document.getElementById("minor");
   const eStringBarre = document.getElementById("eStringBarre");
   const aStringBarre = document.getElementById("aStringBarre");
   const dStringBarre = document.getElementById("dStringBarre");
   const eString7 = document.getElementById("7th");
 
+
+  openMajor?.addEventListener("click", displayMajor);
+  openMinor?.addEventListener("click", displayMinor);
   eStringBarre?.addEventListener("click", displayEString);
   aStringBarre?.addEventListener("click", displayAString);
   dStringBarre?.addEventListener("click", displayDString);

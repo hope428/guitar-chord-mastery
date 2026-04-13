@@ -143,7 +143,7 @@ let chords = [
   {
     index: 28,
     name: "B Major",
-    imgUrl: "assets/chords/major/bMaj.png"
+    imgUrl: "assets/chords/major/bMaj.png",
   },
   {
     index: 29,
@@ -228,31 +228,31 @@ const displayStringFunction = (first, last) => {
   library.innerHTML = html;
   assignButtonEventListener();
   swiper.update();
-}
+};
 
 const displayEString = () => {
-  displayStringFunction(0, 5)
+  displayStringFunction(0, 5);
 };
 
 const displayAString = () => {
-  displayStringFunction(6, 11)
+  displayStringFunction(6, 11);
 };
 
 const displayDString = () => {
-  displayStringFunction(12, 17)
+  displayStringFunction(12, 17);
 };
 
 const display7th = () => {
-  displayStringFunction(18, 26)
+  displayStringFunction(18, 26);
 };
 
 const displayMajor = () => {
-  displayStringFunction(27, 33)
-}
+  displayStringFunction(27, 33);
+};
 
 const displayMinor = () => {
-  displayStringFunction(34, 40)
-}
+  displayStringFunction(34, 40);
+};
 
 const swiper = new Swiper(".swiper", {
   slidesPerView: "auto",
@@ -273,7 +273,7 @@ const addToFavorites = (btnId) => {
   currentFaves.push(btnId);
   localStorage.setItem("chordFavorites", JSON.stringify(currentFaves));
   eliminateDuplicates();
-  event.target.innerText = "Favorited!"
+  event.target.innerText = "Favorited!";
 };
 
 const assignButtonEventListener = () => {
@@ -337,10 +337,12 @@ const unfavoriteChord = (btnId) => {
 const checkForFavorite = (id) => {
   let currentFaves = localStorage.getItem("chordFavorites");
   currentFaves = JSON.parse(currentFaves);
-  if (currentFaves.includes(String(id))) {
-    return true;
-  } else {
-    return false;
+  if (currentFaves.length > 0) {
+    if (currentFaves.includes(String(id))) {
+      return true;
+    } else {
+      return false;
+    }
   }
 };
 
@@ -351,7 +353,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const aStringBarre = document.getElementById("aStringBarre");
   const dStringBarre = document.getElementById("dStringBarre");
   const eString7 = document.getElementById("7th");
-
 
   openMajor?.addEventListener("click", displayMajor);
   openMinor?.addEventListener("click", displayMinor);

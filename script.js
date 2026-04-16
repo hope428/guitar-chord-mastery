@@ -98,7 +98,7 @@ let chords = [
   {
     index: 19,
     name: "E String - F Major 7th",
-    imgUrl: "assets/chords/e-string-7-chords/Fmaj7.png",
+    imgUrl: "assets/chords/e-string-7-chords/FMaj7.png",
   },
   {
     index: 20,
@@ -113,7 +113,7 @@ let chords = [
   {
     index: 22,
     name: "E String - G Major 7th",
-    imgUrl: "assets/chords/e-string-7-chords/Gmaj7.png",
+    imgUrl: "assets/chords/e-string-7-chords/GMaj7.png",
   },
   {
     index: 23,
@@ -128,7 +128,7 @@ let chords = [
   {
     index: 25,
     name: "E String - A Major 7th",
-    imgUrl: "assets/chords/e-string-7-chords/Amaj7.png",
+    imgUrl: "assets/chords/e-string-7-chords/AMaj7.png",
   },
   {
     index: 26,

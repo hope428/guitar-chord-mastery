@@ -173,37 +173,37 @@ let chords = [
   {
     index: 34,
     name: "A Minor",
-    imgUrl: "assets/chords/major/aMin.png",
+    imgUrl: "assets/chords/minor/aMin.png",
   },
   {
     index: 35,
     name: "B Minor",
-    imgUrl: "assets/chords/major/bMin.png",
+    imgUrl: "assets/chords/minor/bMin.png",
   },
   {
     index: 36,
     name: "C Minor",
-    imgUrl: "assets/chords/major/cMin.png",
+    imgUrl: "assets/chords/minor/cMin.png",
   },
   {
     index: 37,
     name: "D Minor",
-    imgUrl: "assets/chords/major/dMin.png",
+    imgUrl: "assets/chords/minor/dMin.png",
   },
   {
     index: 38,
     name: "E Minor",
-    imgUrl: "assets/chords/major/eMin.png",
+    imgUrl: "assets/chords/minor/eMin.png",
   },
   {
     index: 39,
     name: "F Minor",
-    imgUrl: "assets/chords/major/fMin.png",
+    imgUrl: "assets/chords/minor/fMin.png",
   },
   {
     index: 40,
     name: "G Minor",
-    imgUrl: "assets/chords/major/gMin.png",
+    imgUrl: "assets/chords/minor/gMin.png",
   },
 ];
 const library = document.getElementById("libraryResults");
